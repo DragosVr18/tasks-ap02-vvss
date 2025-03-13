@@ -162,7 +162,10 @@ public class TaskIO {
     }
     //
     private static int getIntervalFromText(String line){
-        int days, hours, minutes, seconds;
+        int days;
+        int hours;
+        int minutes;
+        int seconds;
         //[1 day 2 hours 46 minutes 40 seconds].
         //[46 minutes 40 seconds].
         //[46 minutes].
