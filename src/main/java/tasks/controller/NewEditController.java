@@ -21,6 +21,7 @@ import tasks.services.TasksService;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Objects;
 
 public class NewEditController {
 
@@ -110,7 +111,7 @@ public class NewEditController {
         if (currentTask.isRepeated()){
             checkBoxRepeated.setSelected(true);
             hideRepeatedTaskModule(false);
-            datePickerEnd.setValue(dateService.getLocalDateValueFromDate(currentTask.getEndTime()));
+            datePickerEnd.setValue(DateService.getLocalDateValueFromDate(currentTask.getEndTime()));
             fieldInterval.setText(service.getIntervalInHours(currentTask));
             txtFieldTimeEnd.setText(dateService.getTimeOfTheDayFromDate(currentTask.getEndTime()));
         }
@@ -173,7 +174,7 @@ public class NewEditController {
             incorrectInputMade = true;
             try {
                 Stage stage = new Stage();
-                Parent root = FXMLLoader.load(getClass().getResource("/fxml/field-validator.fxml"));
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/field-validator.fxml")));
                 stage.setScene(new Scene(root, 350, 150));
                 stage.setResizable(false);
                 stage.initModality(Modality.APPLICATION_MODAL);

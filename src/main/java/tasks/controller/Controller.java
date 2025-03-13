@@ -134,7 +134,7 @@ public class Controller {
 
         Iterable<Task> filtered =  service.filterTasks(start, end);
 
-        ObservableList<Task> observableTasks = FXCollections.observableList((ArrayList)filtered);
+        ObservableList observableTasks = FXCollections.observableList((ArrayList)filtered);
         tasks.setItems(observableTasks);
         updateCountLabel(observableTasks);
     }

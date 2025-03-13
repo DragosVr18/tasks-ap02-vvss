@@ -83,16 +83,17 @@ public class TaskIO {
     }
 
     public static void readBinary(TaskList tasks, File file) throws IOException{
-        FileInputStream fis = null;
+        FileInputStream fileStream = null;
         try {
-            fis = new FileInputStream(file);
-            read(tasks, fis);
+            fileStream = new FileInputStream(file);
+            read(tasks, fileStream);
         }
         catch (IOException e){
             log.error("IO exception reading or writing file");
         }
         finally {
-            fis.close();
+            assert fileStream != null;
+            fileStream.close();
         }
     }
     public static void write(TaskList tasks, Writer out) throws IOException {
