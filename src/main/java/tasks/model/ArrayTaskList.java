@@ -5,6 +5,13 @@ import org.apache.log4j.Logger;
 
 import java.util.*;
 
+/**
+ * A dynamic array-based implementation of a task list.
+ * Provides methods to add, remove, and retrieve tasks, as well as iterate through them.
+ * Implements an internal iterator for traversing tasks.
+ * Automatically expands its capacity when needed.
+ */
+
 public class ArrayTaskList extends TaskList{
 
     private Task[] tasks;
@@ -47,6 +54,11 @@ public class ArrayTaskList extends TaskList{
     @Override
     public Iterator<Task> iterator() {
         return new ArrayTaskListIterator();
+    }
+
+    public void modify(Task old_task, Task new_task){
+        this.remove(old_task);
+        this.add(new_task);
     }
 
     @Override

@@ -43,6 +43,11 @@ public class LinkedTaskList  extends TaskList {
     private int numberOfTasks;
     private Node last;
 
+    public void modify(Task old_task, Task new_task){
+        this.remove(old_task);
+        this.add(new_task);
+    }
+
     @Override
     public void add(Task task) {
         numberOfTasks++;

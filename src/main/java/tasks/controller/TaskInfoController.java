@@ -6,6 +6,13 @@ import tasks.model.Task;
 
 import org.apache.log4j.Logger;
 
+/**
+ * Controller for the Task Info window.
+ * Displays detailed information about a selected task, including its title,
+ * start and end times, interval, and active status.
+ * Retrieves data from the main table and updates the UI accordingly.
+ */
+
 public class TaskInfoController {
     private static final Logger log = Logger.getLogger(TaskInfoController.class.getName());
     @FXML

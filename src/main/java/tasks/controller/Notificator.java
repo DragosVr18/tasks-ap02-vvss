@@ -8,6 +8,12 @@ import tasks.model.Task;
 
 import java.util.Date;
 
+/**
+ * A background thread that monitors scheduled tasks and triggers notifications.
+ * It checks active tasks periodically and displays reminders when their scheduled time arrives.
+ * Uses JavaFX's Notifications API to show alerts to the user.
+ */
+
 public class Notificator extends Thread {
 
     private static final int millisecondsInSec = 1000;

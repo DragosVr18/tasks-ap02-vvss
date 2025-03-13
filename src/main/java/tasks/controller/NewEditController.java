@@ -23,6 +23,12 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * Controller for the "New/Edit Task" window in the application.
+ * This class handles the initialization, data collection, and user interactions
+ * for creating or editing tasks, including setting task details, managing UI elements,
+ * and saving changes.
+ */
 public class NewEditController {
 
     private static Button clickedButton;
@@ -88,12 +94,12 @@ public class NewEditController {
     @FXML
     public void initialize(){
         log.info("new/edit window initializing");
-//        switch (clickedButton.getId()){
-//            case  "btnNew" : initNewWindow("New Task");
-//                break;
-//            case "btnEdit" : initEditWindow("Edit Task");
-//                break;
-//        }
+        switch (clickedButton.getId()){
+            case  "btnNew" : initNewWindow("New Task");
+                break;
+            case "btnEdit" : initEditWindow("Edit Task");
+                break;
+        }
 
     }
     private void initNewWindow(String title){

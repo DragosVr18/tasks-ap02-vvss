@@ -24,6 +24,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Main controller for managing tasks in the application.
+ * Handles task creation, editing, deletion, filtering, and UI updates.
+ * Integrates with the service layer to manipulate task data and update the view accordingly.
+ */
+
 public class Controller {
     private static final Logger log = Logger.getLogger(Controller.class.getName());
     public ObservableList<Task> tasksList;

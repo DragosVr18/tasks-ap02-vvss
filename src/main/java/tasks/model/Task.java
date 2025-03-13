@@ -7,6 +7,15 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
+/**
+ * The Task class represents a scheduled task with attributes like title, time, start and end times,
+ * repeat interval, and active status. It provides methods for setting and getting task details,
+ * checking if the task is repeated, and calculating the next occurrence of the task.
+ * Additionally, the class overrides methods like equals(), hashCode(), toString(), and clone()
+ * for comparison, object duplication, and hashing. The class also validates time and interval values.
+ */
+
 public class Task implements Serializable, Cloneable {
     private String title;
     private Date time;
