@@ -1,5 +1,8 @@
 package tasks.model;
 
+import org.apache.log4j.Logger;
+import tasks.services.TaskIO;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Iterator;
@@ -14,6 +17,8 @@ public abstract class TaskList implements Iterable<Task>, Serializable  {
 
     public abstract Iterator<Task> iterator();
 
+    private static final Logger log = Logger.getLogger(TaskList.class);
+
     public TaskList incoming(Date from, Date to){
         TaskList incomingTasks;
         if (this instanceof ArrayTaskList){
@@ -26,7 +31,7 @@ public abstract class TaskList implements Iterable<Task>, Serializable  {
         for(int i = 0; i < this.size(); i++){
             if(getTask(i).nextTimeAfter(from) != null && getTask(i).nextTimeAfter(from).before(to)){
                 incomingTasks.add(getTask(i));
-                System.out.println(getTask(i).getTitle());
+                log.info(getTask(i).getTitle());
             }
         }
         return incomingTasks;
