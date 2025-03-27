@@ -30,6 +30,7 @@ public class DateService {
         int hour = Integer.parseInt(units[0]);
         int minute = Integer.parseInt(units[1]);
         if (hour >= HOURS_IN_A_DAY || minute >= MINUTES_IN_HOUR) throw new IllegalArgumentException("time unit exceeds bounds");
+        if (hour < 0 || minute < 0) throw new IllegalArgumentException("time unit is negative");
         Calendar calendar = GregorianCalendar.getInstance();
         calendar.setTime(noTimeDate);
         calendar.set(Calendar.HOUR_OF_DAY, hour);
