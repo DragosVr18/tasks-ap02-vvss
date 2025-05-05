@@ -3,6 +3,7 @@ package tasks.model;
 import org.junit.Before;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 import static org.junit.Assert.*;
 
 import java.util.Calendar;
@@ -13,7 +14,7 @@ class TaskTest {
     private Task task;
     private Calendar calendar;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         calendar = Calendar.getInstance();
     }
