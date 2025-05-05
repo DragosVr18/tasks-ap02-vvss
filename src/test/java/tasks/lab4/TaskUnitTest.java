@@ -7,10 +7,10 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TaskUnitTest {
+class TaskUnitTest {
 
     @Test
-    public void testNonRepeatedTaskNextTimeAfter() {
+    void testNonRepeatedTaskNextTimeAfter() {
         Date now = new Date();
         Date future = new Date(now.getTime() + 60000); // +1 minute
         Task task = new Task("Test Task", future);
@@ -21,7 +21,7 @@ public class TaskUnitTest {
     }
 
     @Test
-    public void testRepeatedTaskNextTimeAfter() {
+    void testRepeatedTaskNextTimeAfter() {
         Date start = new Date();
         Date end = new Date(start.getTime() + 60000 * 5); // +5 minutes
         Task task = new Task("Repeated Task", start, end, 60); // 60 sec interval
