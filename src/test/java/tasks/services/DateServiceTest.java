@@ -69,8 +69,67 @@ class DateServiceTest {
 
     @Test
     void getDateMergedWithTimeValidBVAFixed() {
-        testGetDateMergedWithTime("10:40", true);
+        testGetDateMergedWithTime("00:00", true);
+        testGetDateMergedWithTime("00:01", true);
+        testGetDateMergedWithTime("00:59", true);
+        testGetDateMergedWithTime("00:58", true);
+        testGetDateMergedWithTime("01:00", true);
+        testGetDateMergedWithTime("01:01", true);
+        testGetDateMergedWithTime("01:59", true);
+        testGetDateMergedWithTime("01:58", true);
+        testGetDateMergedWithTime("23:00", true);
+        testGetDateMergedWithTime("23:01", true);
+        testGetDateMergedWithTime("23:59", true);
+        testGetDateMergedWithTime("23:58", true);
+        testGetDateMergedWithTime("22:00", true);
+        testGetDateMergedWithTime("22:01", true);
+        testGetDateMergedWithTime("22:59", true);
+        testGetDateMergedWithTime("22:58", true);
     }
+
+    @Test
+    void getDateMergedWithTimeInvalidBVAFixed() {
+        testGetDateMergedWithTime("00:-1", false);
+        testGetDateMergedWithTime("00:60", false);
+        testGetDateMergedWithTime("-1:00", false);
+        testGetDateMergedWithTime("-1:-1", false);
+        testGetDateMergedWithTime("-1:01", false);
+        testGetDateMergedWithTime("-1:59", false);
+        testGetDateMergedWithTime("-1:58", false);
+        testGetDateMergedWithTime("-1:60", false);
+        testGetDateMergedWithTime("01:-1", false);
+        testGetDateMergedWithTime("01:60", false);
+        testGetDateMergedWithTime("23:-1", false);
+        testGetDateMergedWithTime("23:60", false);
+        testGetDateMergedWithTime("22:-1", false);
+        testGetDateMergedWithTime("22:60", false);
+        testGetDateMergedWithTime("24:00", false);
+        testGetDateMergedWithTime("24:-1", false);
+        testGetDateMergedWithTime("24:01", false);
+        testGetDateMergedWithTime("24:59", false);
+        testGetDateMergedWithTime("24:58", false);
+        testGetDateMergedWithTime("24:60", false);
+    }
+
+    @Test
+    void testGetDateMergedWithTimeECValidFixed() {
+        testGetDateMergedWithTime("10:40", true);
+
+    }
+
+    @Test
+    void testGetDateMergedWithTimeECInvalidFixed() {
+        testGetDateMergedWithTime("10:78", false);
+        testGetDateMergedWithTime("10:-5", false);
+        testGetDateMergedWithTime("57:40", false);
+        testGetDateMergedWithTime("57:78", false);
+        testGetDateMergedWithTime("57:-5", false);
+        testGetDateMergedWithTime("-5:40", false);
+        testGetDateMergedWithTime("-5:78", false);
+        testGetDateMergedWithTime("-5:-5", false);
+        testGetDateMergedWithTime("smth_no", false);
+    }
+
 
     private static Stream<Arguments> boundaryValueTestCases() {
         return Stream.of(
