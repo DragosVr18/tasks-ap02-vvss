@@ -8,7 +8,7 @@ import tasks.services.TasksService;
 
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 class TaskIntegrationTest {
 
@@ -17,10 +17,9 @@ class TaskIntegrationTest {
     private Task realTask;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         list = new ArrayTaskList();
         service = new TasksService(list);
-
         Date now = new Date();
         Date later = new Date(now.getTime() + 10000);
         realTask = new Task("Real Task", now, later, 1000);
