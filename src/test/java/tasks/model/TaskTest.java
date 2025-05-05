@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 import java.util.Calendar;
 import java.util.Date;
 
-public class TaskTest {
+class TaskTest {
 
     private Task task;
     private Calendar calendar;
