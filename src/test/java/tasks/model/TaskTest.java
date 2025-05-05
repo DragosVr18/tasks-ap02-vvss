@@ -1,7 +1,8 @@
 package tasks.model;
 
 import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 
 import java.util.Calendar;
@@ -25,7 +26,7 @@ public class TaskTest {
 
 
     @Test
-    public void testPath_P01_CurrentAfterOrEqualsEnd() {
+    void testPath_P01_CurrentAfterOrEqualsEnd() {
         Date startTime = createDate(2023, Calendar.JANUARY, 1, 10, 0);
         Date endTime = createDate(2023, Calendar.JANUARY, 10, 10, 0);
         int interval = 24 * 60 * 60;
@@ -41,7 +42,7 @@ public class TaskTest {
     }
 
     @Test
-    public void testPath_P02_RepeatedActiveBeforeStart() {
+    void testPath_P02_RepeatedActiveBeforeStart() {
         Date startTime = createDate(2023, Calendar.JANUARY, 1, 10, 0);
         Date endTime = createDate(2023, Calendar.JANUARY, 10, 10, 0);
         int interval = 24 * 60 * 60;
@@ -56,7 +57,7 @@ public class TaskTest {
     }
 
     @Test
-    public void testPath_P03_RepeatedActiveEqualsTimeAfter() {
+    void testPath_P03_RepeatedActiveEqualsTimeAfter() {
         Date startTime = createDate(2023, Calendar.JANUARY, 1, 10, 0);
         Date endTime = createDate(2023, Calendar.JANUARY, 10, 10, 0);
         int interval = 24 * 60 * 60;
@@ -78,7 +79,7 @@ public class TaskTest {
     }
 
     @Test
-    public void testPath_P04_RepeatedActiveBetweenTimepoints() {
+    void testPath_P04_RepeatedActiveBetweenTimepoints() {
         Date startTime = createDate(2023, Calendar.JANUARY, 1, 10, 0);
         Date endTime = createDate(2023, Calendar.JANUARY, 10, 10, 0);
         int interval = 24 * 60 * 60;
@@ -95,7 +96,7 @@ public class TaskTest {
     }
 
     @Test
-    public void testPath_P05_LoopExitsThenNonRepeatedBeforeTask() {
+    void testPath_P05_LoopExitsThenNonRepeatedBeforeTask() {
         Date startTime = createDate(2023, Calendar.JANUARY, 1, 10, 0);
         Date endTime = createDate(2023, Calendar.JANUARY, 3, 10, 0);
         int interval = 24 * 60 * 60;
@@ -114,7 +115,7 @@ public class TaskTest {
     }
 
     @Test
-    public void testPath_P06_RepeatedActiveOutsideRangeThenNonRepeatedBefore() {
+    void testPath_P06_RepeatedActiveOutsideRangeThenNonRepeatedBefore() {
         Date startTime = createDate(2023, Calendar.JANUARY, 1, 10, 0);
         Date endTime = createDate(2023, Calendar.JANUARY, 10, 10, 0);
         int interval = 24 * 60 * 60;
@@ -132,7 +133,7 @@ public class TaskTest {
     }
 
     @Test
-    public void testPath_P07_RepeatedActiveOutsideRangeThenNonRepeatedFalse() {
+    void testPath_P07_RepeatedActiveOutsideRangeThenNonRepeatedFalse() {
         Date startTime = createDate(2023, Calendar.JANUARY, 1, 10, 0);
         Date endTime = createDate(2023, Calendar.JANUARY, 10, 10, 0);
         int interval = 24 * 60 * 60;
@@ -149,7 +150,7 @@ public class TaskTest {
     }
 
     @Test
-    public void testPath_P08_NonRepeatedActiveBeforeTask() {
+    void testPath_P08_NonRepeatedActiveBeforeTask() {
         Date taskTime = createDate(2023, Calendar.JANUARY, 1, 10, 0);
 
         task = new Task("Test Task", taskTime);
@@ -162,7 +163,7 @@ public class TaskTest {
     }
 
     @Test
-    public void testPath_P09_NonRepeatedInactiveOrAfterTime() {
+    void testPath_P09_NonRepeatedInactiveOrAfterTime() {
         Date taskTime = createDate(2023, Calendar.JANUARY, 1, 10, 0);
 
         task = new Task("Test Task", taskTime);
