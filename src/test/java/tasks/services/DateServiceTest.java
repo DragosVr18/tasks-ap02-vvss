@@ -4,6 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import tasks.model.ArrayTaskList;
@@ -13,8 +15,8 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("DateService tests")
-@Tag("DateService")
+//@DisplayName("DateService tests")
+//@Tag("DateService")
 class DateServiceTest {
     private final DateService dateService = new DateService(new TasksService(new ArrayTaskList()));
 
@@ -63,6 +65,11 @@ class DateServiceTest {
     @MethodSource("boundaryValueTestCases")
     void getDateMergedWithTimeValidBVA(String testTime, boolean isValid) {
         testGetDateMergedWithTime(testTime, isValid);
+    }
+
+    @Test
+    void getDateMergedWithTimeValidBVAFixed() {
+        testGetDateMergedWithTime("10:40", true);
     }
 
     private static Stream<Arguments> boundaryValueTestCases() {
