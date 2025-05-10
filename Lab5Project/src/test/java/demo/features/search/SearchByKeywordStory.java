@@ -16,13 +16,12 @@ import demo.steps.serenity.EndUserSteps;
 @RunWith(SerenityRunner.class)
 public class SearchByKeywordStory {
 
-    @Managed(uniqueSession = true)
+    @Managed(uniqueSession = true, driver="safari")
     public WebDriver webdriver;
 
     @Steps
     public EndUserSteps anna;
 
-//    @Issue("#WIKI-1")
     @Test
     public void login() {
         anna.is_the_home_page();
@@ -30,14 +29,26 @@ public class SearchByKeywordStory {
         assert anna.assertShoppingCartExists();
     }
 
-//    @Test
-//    public void searching_by_keyword_banana_should_display_the_corresponding_article() {
-//        anna.is_the_home_page();
-//        anna.looks_for("pear");
-//        anna.should_see_definition("An edible fruit produced by the pear tree, similar to an apple but elongated towards the stem.");
-//    }
+    @Test
+    public void addToCard(){
+        login();
+        anna.addToCartStep();
+        assert anna.assertButtonChangedRemove();
+    }
 
     @Test
-    public void searching_by_ambiguious_keyword_should_display_the_disambiguation_page() {
+    public void logout(){
+        login();
+        anna.pressLogoutButton();
+        assert anna.assertLoginButtonAfterLogout();
     }
+
+    @Test
+    public void removeFromCart(){
+        login();
+        addToCard();
+        anna.removeFromCart();
+        assert anna.assertButtonAddToCart();
+    }
+
 } 
