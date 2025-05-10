@@ -37,9 +37,45 @@ public class EndUserSteps {
     }
 
     @Step
+    public void addToCart(){
+        dictionaryPage.addToCart();
+    }
+
+    @Step
     public void login(String username, String password) {
         entersUsername(username);
         entersPassword(password);
         pressLoginButton();
+    }
+
+    @Step
+    public void addToCartStep(){
+        addToCart();
+    }
+
+    @Step
+    public void pressLogoutButton(){
+        dictionaryPage.pressButtonThreePoints();
+        dictionaryPage.pressLogoutButton();
+    }
+
+    @Step
+    public boolean assertLoginButtonAfterLogout(){
+        return dictionaryPage.checkLoginButtonAfterLogout();
+    }
+
+    @Step
+    public void removeFromCart(){
+        dictionaryPage.removeFromCart();
+    }
+
+    @Step
+    public boolean assertButtonAddToCart(){
+        return dictionaryPage.checkAddToCartVisibleButton();
+    }
+
+    @Step
+    public boolean assertButtonChangedRemove(){
+        return dictionaryPage.checkButtonChangedValue();
     }
 }
