@@ -27,3 +27,12 @@ dependencies {
     testImplementation('junit:junit:4.12')
 }
 gradle.startParameter.continueOnFailure = true
+
+test {
+    useJUnit() // or useJUnitPlatform() if you're using JUnit 5
+
+    jvmArgs += [
+            '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+            '--add-opens', 'java.base/java.lang.reflect=ALL-UNNAMED'
+    ]
+}
