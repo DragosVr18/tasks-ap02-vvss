@@ -94,6 +94,10 @@ public class DictionaryPage extends PageObject {
     }
 
     public boolean checkCart(){
-        return cart.waitUntilVisible().isVisible();
+        try {
+            return cart.waitUntilVisible().isVisible();
+        } catch (Exception e){
+            return false;
+        }
     }
 }
